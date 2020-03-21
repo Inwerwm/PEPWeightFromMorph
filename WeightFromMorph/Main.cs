@@ -56,6 +56,7 @@ namespace WeightFromMorph
                 }
                 else
                 {
+                    ctrlForm.ReLoad();
                     ctrlForm.Visible = !ctrlForm.Visible;
                 }
             }

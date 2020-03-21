@@ -94,6 +94,7 @@ namespace WeightFromMorph
             weights.Add((vertex.Bone3, vertex.Weight3));
             weights.Add((vertex.Bone4, vertex.Weight4));
             weights.RemoveAll(w => w.bone == null);
+            weights.RemoveAll(w => w.weight == 0.0);
             return weights;
         }
 
@@ -106,6 +107,7 @@ namespace WeightFromMorph
         {
             //正規化
             var weight = NormalizeWeights(weights);
+            ClearVertexWeight(ref vertex);
 
             //頂点に入力
             vertex.Bone1 = weight[0].bone;
@@ -131,8 +133,9 @@ namespace WeightFromMorph
         /// ウェイトを正規化する
         /// </summary>
         /// <param name="weights">正規化する(ボーン,ウェイト)タプルのリスト</param>
+        /// <param name="basis">正規化後の合計</param>
         /// <returns>正規化された(ボーン,ウェイト)タプルのリスト</returns>
-        public static List<(IPXBone bone, float weight)> NormalizeWeights(List<(IPXBone bone, float weight)> weights)
+        public static List<(IPXBone bone, float weight)> NormalizeWeights(List<(IPXBone bone, float weight)> weights, float basis = 1)
         {
             //weightを基準に降順でソート
             weights.Sort((v, w) => w.weight.CompareTo(v.weight));
@@ -142,7 +145,7 @@ namespace WeightFromMorph
 
             //正規化
             var sum = weights.Select(w => w.weight).Sum();
-            return weights.Select(w => (w.bone, w.weight / sum)).ToList();
+            return weights.Select(w => (w.bone, basis * w.weight / sum)).ToList();
         }
 
         /// <summary>
@@ -152,6 +155,18 @@ namespace WeightFromMorph
         public static void NormalizeWeights(ref IPXVertex vertex)
         {
             SetVertexWeights(GetWeights(vertex), ref vertex);
+        }
+
+        public static void ClearVertexWeight(ref IPXVertex vertex)
+        {
+            vertex.Bone1 = null;
+            vertex.Weight1 = 0;
+            vertex.Bone2 = null;
+            vertex.Weight2 = 0;
+            vertex.Bone3 = null;
+            vertex.Weight3 = 0;
+            vertex.Bone4 = null;
+            vertex.Weight4 = 0;
         }
     }
 }
