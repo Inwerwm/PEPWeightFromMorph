@@ -49,6 +49,14 @@ namespace WeightFromMorph
                 clusters.AddRange(divideByAxisX(selectedMorph.Offsets.Select(o => (IPXVertexMorphOffset)o).ToList()));
             else if (radioButtonVecRL.Checked)
                 clusters.AddRange(clusteringByVecX(selectedMorph.Offsets.Select(o => (IPXVertexMorphOffset)o).ToList()));
+            else if (radioButtonPosTB.Checked)
+                clusters.AddRange(divideByAxisY(selectedMorph.Offsets.Select(o => (IPXVertexMorphOffset)o).ToList()));
+            else if (radioButtonVecTB.Checked)
+                clusters.AddRange(clusteringByVecY(selectedMorph.Offsets.Select(o => (IPXVertexMorphOffset)o).ToList()));
+            else if (radioButtonPosFB.Checked)
+                clusters.AddRange(divideByAxisZ(selectedMorph.Offsets.Select(o => (IPXVertexMorphOffset)o).ToList()));
+            else if (radioButtonVecFB.Checked)
+                clusters.AddRange(clusteringByVecZ(selectedMorph.Offsets.Select(o => (IPXVertexMorphOffset)o).ToList()));
             else
                 clusters.Add(selectedMorph.Offsets.Select(o => (IPXVertexMorphOffset)o).ToList());
 

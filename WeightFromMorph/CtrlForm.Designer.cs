@@ -33,23 +33,23 @@
             this.comboBoxParentBone = new System.Windows.Forms.ComboBox();
             this.checkBoxParentLimit = new System.Windows.Forms.CheckBox();
             this.groupBoxClustering = new System.Windows.Forms.GroupBox();
+            this.radioButtonVecFB = new System.Windows.Forms.RadioButton();
+            this.radioButtonVecTB = new System.Windows.Forms.RadioButton();
             this.radioButtonVecRL = new System.Windows.Forms.RadioButton();
+            this.radioButtonPosFB = new System.Windows.Forms.RadioButton();
+            this.radioButtonPosTB = new System.Windows.Forms.RadioButton();
             this.radioButtonPosRL = new System.Windows.Forms.RadioButton();
             this.radioButtonNone = new System.Windows.Forms.RadioButton();
             this.textBoxThreshold = new System.Windows.Forms.TextBox();
             this.groupBoxRatio = new System.Windows.Forms.GroupBox();
-            this.radioButtonRNorm = new System.Windows.Forms.RadioButton();
-            this.radioButtonRX = new System.Windows.Forms.RadioButton();
-            this.radioButtonRY = new System.Windows.Forms.RadioButton();
             this.radioButtonRZ = new System.Windows.Forms.RadioButton();
+            this.radioButtonRY = new System.Windows.Forms.RadioButton();
+            this.radioButtonRX = new System.Windows.Forms.RadioButton();
+            this.radioButtonRNorm = new System.Windows.Forms.RadioButton();
             this.labelParent = new System.Windows.Forms.Label();
             this.labelParentBoneDesc = new System.Windows.Forms.Label();
             this.labelThreshold = new System.Windows.Forms.Label();
             this.labelThresholdDesc = new System.Windows.Forms.Label();
-            this.radioButtonPosUB = new System.Windows.Forms.RadioButton();
-            this.radioButtonVecUB = new System.Windows.Forms.RadioButton();
-            this.radioButtonPosFB = new System.Windows.Forms.RadioButton();
-            this.radioButtonVecFB = new System.Windows.Forms.RadioButton();
             this.groupBoxClustering.SuspendLayout();
             this.groupBoxRatio.SuspendLayout();
             this.SuspendLayout();
@@ -103,10 +103,10 @@
             this.groupBoxClustering.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxClustering.Controls.Add(this.radioButtonVecFB);
-            this.groupBoxClustering.Controls.Add(this.radioButtonVecUB);
+            this.groupBoxClustering.Controls.Add(this.radioButtonVecTB);
             this.groupBoxClustering.Controls.Add(this.radioButtonVecRL);
             this.groupBoxClustering.Controls.Add(this.radioButtonPosFB);
-            this.groupBoxClustering.Controls.Add(this.radioButtonPosUB);
+            this.groupBoxClustering.Controls.Add(this.radioButtonPosTB);
             this.groupBoxClustering.Controls.Add(this.radioButtonPosRL);
             this.groupBoxClustering.Controls.Add(this.radioButtonNone);
             this.groupBoxClustering.Location = new System.Drawing.Point(182, 142);
@@ -115,6 +115,26 @@
             this.groupBoxClustering.TabIndex = 5;
             this.groupBoxClustering.TabStop = false;
             this.groupBoxClustering.Text = "クラスタリング";
+            // 
+            // radioButtonVecFB
+            // 
+            this.radioButtonVecFB.AutoSize = true;
+            this.radioButtonVecFB.Location = new System.Drawing.Point(298, 56);
+            this.radioButtonVecFB.Name = "radioButtonVecFB";
+            this.radioButtonVecFB.Size = new System.Drawing.Size(99, 24);
+            this.radioButtonVecFB.TabIndex = 1;
+            this.radioButtonVecFB.Text = "移動の前後";
+            this.radioButtonVecFB.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonVecTB
+            // 
+            this.radioButtonVecTB.AutoSize = true;
+            this.radioButtonVecTB.Location = new System.Drawing.Point(193, 56);
+            this.radioButtonVecTB.Name = "radioButtonVecTB";
+            this.radioButtonVecTB.Size = new System.Drawing.Size(99, 24);
+            this.radioButtonVecTB.TabIndex = 1;
+            this.radioButtonVecTB.Text = "移動の上下";
+            this.radioButtonVecTB.UseVisualStyleBackColor = true;
             // 
             // radioButtonVecRL
             // 
@@ -125,6 +145,26 @@
             this.radioButtonVecRL.TabIndex = 1;
             this.radioButtonVecRL.Text = "移動の左右";
             this.radioButtonVecRL.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonPosFB
+            // 
+            this.radioButtonPosFB.AutoSize = true;
+            this.radioButtonPosFB.Location = new System.Drawing.Point(298, 26);
+            this.radioButtonPosFB.Name = "radioButtonPosFB";
+            this.radioButtonPosFB.Size = new System.Drawing.Size(99, 24);
+            this.radioButtonPosFB.TabIndex = 1;
+            this.radioButtonPosFB.Text = "位置の前後";
+            this.radioButtonPosFB.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonPosTB
+            // 
+            this.radioButtonPosTB.AutoSize = true;
+            this.radioButtonPosTB.Location = new System.Drawing.Point(193, 26);
+            this.radioButtonPosTB.Name = "radioButtonPosTB";
+            this.radioButtonPosTB.Size = new System.Drawing.Size(99, 24);
+            this.radioButtonPosTB.TabIndex = 1;
+            this.radioButtonPosTB.Text = "位置の上下";
+            this.radioButtonPosTB.UseVisualStyleBackColor = true;
             // 
             // radioButtonPosRL
             // 
@@ -174,27 +214,15 @@
             this.groupBoxRatio.TabStop = false;
             this.groupBoxRatio.Text = "ウェイトに変換する移動量割合の算出法";
             // 
-            // radioButtonRNorm
+            // radioButtonRZ
             // 
-            this.radioButtonRNorm.AutoSize = true;
-            this.radioButtonRNorm.Checked = true;
-            this.radioButtonRNorm.Location = new System.Drawing.Point(7, 27);
-            this.radioButtonRNorm.Name = "radioButtonRNorm";
-            this.radioButtonRNorm.Size = new System.Drawing.Size(61, 24);
-            this.radioButtonRNorm.TabIndex = 0;
-            this.radioButtonRNorm.TabStop = true;
-            this.radioButtonRNorm.Text = "ノルム";
-            this.radioButtonRNorm.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonRX
-            // 
-            this.radioButtonRX.AutoSize = true;
-            this.radioButtonRX.Location = new System.Drawing.Point(74, 27);
-            this.radioButtonRX.Name = "radioButtonRX";
-            this.radioButtonRX.Size = new System.Drawing.Size(96, 24);
-            this.radioButtonRX.TabIndex = 1;
-            this.radioButtonRX.Text = "X軸移動量";
-            this.radioButtonRX.UseVisualStyleBackColor = true;
+            this.radioButtonRZ.AutoSize = true;
+            this.radioButtonRZ.Location = new System.Drawing.Point(277, 27);
+            this.radioButtonRZ.Name = "radioButtonRZ";
+            this.radioButtonRZ.Size = new System.Drawing.Size(96, 24);
+            this.radioButtonRZ.TabIndex = 1;
+            this.radioButtonRZ.Text = "Z軸移動量";
+            this.radioButtonRZ.UseVisualStyleBackColor = true;
             // 
             // radioButtonRY
             // 
@@ -206,15 +234,27 @@
             this.radioButtonRY.Text = "Y軸移動量";
             this.radioButtonRY.UseVisualStyleBackColor = true;
             // 
-            // radioButtonRZ
+            // radioButtonRX
             // 
-            this.radioButtonRZ.AutoSize = true;
-            this.radioButtonRZ.Location = new System.Drawing.Point(277, 27);
-            this.radioButtonRZ.Name = "radioButtonRZ";
-            this.radioButtonRZ.Size = new System.Drawing.Size(96, 24);
-            this.radioButtonRZ.TabIndex = 1;
-            this.radioButtonRZ.Text = "Z軸移動量";
-            this.radioButtonRZ.UseVisualStyleBackColor = true;
+            this.radioButtonRX.AutoSize = true;
+            this.radioButtonRX.Location = new System.Drawing.Point(74, 27);
+            this.radioButtonRX.Name = "radioButtonRX";
+            this.radioButtonRX.Size = new System.Drawing.Size(96, 24);
+            this.radioButtonRX.TabIndex = 1;
+            this.radioButtonRX.Text = "X軸移動量";
+            this.radioButtonRX.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonRNorm
+            // 
+            this.radioButtonRNorm.AutoSize = true;
+            this.radioButtonRNorm.Checked = true;
+            this.radioButtonRNorm.Location = new System.Drawing.Point(7, 27);
+            this.radioButtonRNorm.Name = "radioButtonRNorm";
+            this.radioButtonRNorm.Size = new System.Drawing.Size(61, 24);
+            this.radioButtonRNorm.TabIndex = 0;
+            this.radioButtonRNorm.TabStop = true;
+            this.radioButtonRNorm.Text = "ノルム";
+            this.radioButtonRNorm.UseVisualStyleBackColor = true;
             // 
             // labelParent
             // 
@@ -254,46 +294,6 @@
             this.labelThresholdDesc.TabIndex = 10;
             this.labelThresholdDesc.Text = "座標や移動量がこの数値以下であった場合0とみなす";
             this.labelThresholdDesc.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // radioButtonPosUB
-            // 
-            this.radioButtonPosUB.AutoSize = true;
-            this.radioButtonPosUB.Location = new System.Drawing.Point(193, 26);
-            this.radioButtonPosUB.Name = "radioButtonPosUB";
-            this.radioButtonPosUB.Size = new System.Drawing.Size(99, 24);
-            this.radioButtonPosUB.TabIndex = 1;
-            this.radioButtonPosUB.Text = "位置の上下";
-            this.radioButtonPosUB.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonVecUB
-            // 
-            this.radioButtonVecUB.AutoSize = true;
-            this.radioButtonVecUB.Location = new System.Drawing.Point(193, 56);
-            this.radioButtonVecUB.Name = "radioButtonVecUB";
-            this.radioButtonVecUB.Size = new System.Drawing.Size(99, 24);
-            this.radioButtonVecUB.TabIndex = 1;
-            this.radioButtonVecUB.Text = "移動の上下";
-            this.radioButtonVecUB.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonPosFB
-            // 
-            this.radioButtonPosFB.AutoSize = true;
-            this.radioButtonPosFB.Location = new System.Drawing.Point(298, 26);
-            this.radioButtonPosFB.Name = "radioButtonPosFB";
-            this.radioButtonPosFB.Size = new System.Drawing.Size(99, 24);
-            this.radioButtonPosFB.TabIndex = 1;
-            this.radioButtonPosFB.Text = "位置の前後";
-            this.radioButtonPosFB.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonVecFB
-            // 
-            this.radioButtonVecFB.AutoSize = true;
-            this.radioButtonVecFB.Location = new System.Drawing.Point(298, 56);
-            this.radioButtonVecFB.Name = "radioButtonVecFB";
-            this.radioButtonVecFB.Size = new System.Drawing.Size(99, 24);
-            this.radioButtonVecFB.TabIndex = 1;
-            this.radioButtonVecFB.Text = "移動の前後";
-            this.radioButtonVecFB.UseVisualStyleBackColor = true;
             // 
             // CtrlForm
             // 
@@ -344,9 +344,9 @@
         private System.Windows.Forms.RadioButton radioButtonRZ;
         private System.Windows.Forms.RadioButton radioButtonRY;
         private System.Windows.Forms.RadioButton radioButtonVecFB;
-        private System.Windows.Forms.RadioButton radioButtonVecUB;
+        private System.Windows.Forms.RadioButton radioButtonVecTB;
         private System.Windows.Forms.RadioButton radioButtonPosFB;
-        private System.Windows.Forms.RadioButton radioButtonPosUB;
+        private System.Windows.Forms.RadioButton radioButtonPosTB;
         private System.Windows.Forms.Label labelParent;
         private System.Windows.Forms.Label labelParentBoneDesc;
         private System.Windows.Forms.Label labelThreshold;

@@ -19,8 +19,9 @@ namespace WeightFromMorph
         {
             var clusters = new List<List<IPXVertexMorphOffset>>();
 
-            clusters.Add(source.Where(o => filter(o.Vertex.Position.X) < 0).ToList());
-            clusters.Add(source.Where(o => filter(o.Vertex.Position.X) > 0).ToList());
+            var aveX = source.Average(o => o.Vertex.Position.X);
+            clusters.Add(source.Where(o => filter(o.Vertex.Position.X) < aveX).ToList());
+            clusters.Add(source.Where(o => filter(o.Vertex.Position.X) > aveX).ToList());
 
             return clusters;
         }
@@ -29,8 +30,9 @@ namespace WeightFromMorph
         {
             var clusters = new List<List<IPXVertexMorphOffset>>();
 
-            clusters.Add(source.Where(o => filter(o.Vertex.Position.Y) < 0).ToList());
-            clusters.Add(source.Where(o => filter(o.Vertex.Position.Y) > 0).ToList());
+            var aveY = source.Average(o => o.Vertex.Position.Y);
+            clusters.Add(source.Where(o => filter(o.Vertex.Position.Y) < aveY).ToList());
+            clusters.Add(source.Where(o => filter(o.Vertex.Position.Y) > aveY).ToList());
 
             return clusters;
         }
@@ -39,20 +41,18 @@ namespace WeightFromMorph
         {
             var clusters = new List<List<IPXVertexMorphOffset>>();
 
-            clusters.Add(source.Where(o => filter(o.Vertex.Position.Z) < 0).ToList());
-            clusters.Add(source.Where(o => filter(o.Vertex.Position.Z) > 0).ToList());
+            var aveZ = source.Average(o => o.Vertex.Position.Z);
+            clusters.Add(source.Where(o => filter(o.Vertex.Position.Z) < aveZ).ToList());
+            clusters.Add(source.Where(o => filter(o.Vertex.Position.Z) > aveZ).ToList());
 
             return clusters;
         }
 
-        List<List<IPXVertexMorphOffset>> clusteringByVecX(List<IPXVertexMorphOffset> source)
+        List<List<IPXVertexMorphOffset>> clusteringByVec(List<IPXVertexMorphOffset> source, V3 vA, V3 vB)
         {
             var clusters = new List<List<IPXVertexMorphOffset>>();
             clusters.Add(new List<IPXVertexMorphOffset>());
             clusters.Add(new List<IPXVertexMorphOffset>());
-
-            var vA = new V3(-1, 0, 0);
-            var vB = new V3(1, 0, 0);
 
             foreach (IPXVertexMorphOffset offset in source)
             {
@@ -69,6 +69,12 @@ namespace WeightFromMorph
 
             return clusters;
         }
+
+        List<List<IPXVertexMorphOffset>> clusteringByVecX(List<IPXVertexMorphOffset> source) => clusteringByVec(source, new V3(-1, 0, 0), new V3(1, 0, 0));
+
+        List<List<IPXVertexMorphOffset>> clusteringByVecY(List<IPXVertexMorphOffset> source) => clusteringByVec(source, new V3(0, -1, 0), new V3(0, 1, 0));
+
+        List<List<IPXVertexMorphOffset>> clusteringByVecZ(List<IPXVertexMorphOffset> source) => clusteringByVec(source, new V3(0, 0, -1), new V3(0, 0, 1));
 
         Vector3 ToVector3ByThreshold(V3 vec)
         {
